@@ -6,7 +6,7 @@
 #    By: mmasyush <mmasyush@student.unit.ua>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/09 16:44:14 by mmasyush          #+#    #+#              #
-#    Updated: 2019/11/10 14:44:40 by mmasyush         ###   ########.fr        #
+#    Updated: 2019/11/12 17:44:34 by mmasyush         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,11 +20,11 @@ SRC = Parser.cpp Lexer.cpp main.cpp
 
 HEAD = Parser.hpp Lexer.hpp 
 
-HEAD_DIR = $(addprefix $(./headers), $(HEAD)) 
+HEAD_DIR = $(addprefix $(./headers/), $(HEAD)) 
 
-SRC_DIR = ./src
+SRC_DIR = ./src/
 
-OBJ_DIR = ./obj
+OBJ_DIR = ./obj/
 
 OBJ = $(addprefix $(OBJ_DIR), $(SRC:.cpp=.o))
 
@@ -38,7 +38,7 @@ $(NAME): $(OBJ)
 	$(CC) $(FLAGS) $(OBJ) -o $(NAME)
 
 $(OBJ_DIR)%.o:$(SRC_DIR)%.cpp $(HEADERS)
-	$(CC) $(FLAGS) -o %@ -c %<
+	$(CC) $(FLAGS) -o $@ -c $< 
 
 clean:
 	rm -rf $(OBJ_DIR)

@@ -6,7 +6,7 @@
 /*   By: mmasyush <mmasyush@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/10 13:23:27 by mmasyush          #+#    #+#             */
-/*   Updated: 2019/11/10 17:08:36 by mmasyush         ###   ########.fr       */
+/*   Updated: 2019/11/12 15:12:49 by mmasyush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,11 @@ int main(int argc, char **argv)
 	{
 		Parser parser;	
 		if (argc == 1)
-			parser.read_terminal();
+			parser.read_instruct();
 		else if (argc == 2)
-			parser.read_file(argv[1]);
+			parser.read_instruct(argv[1]);
 		else
-		{
-			return (1);
-		}
+			throw Ex_BadParams();
 			
 	}
 	catch(const std::exception & e)

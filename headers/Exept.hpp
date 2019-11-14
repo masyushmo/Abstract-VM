@@ -6,7 +6,7 @@
 /*   By: mmasyush <mmasyush@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/10 15:00:20 by mmasyush          #+#    #+#             */
-/*   Updated: 2019/11/10 15:26:56 by mmasyush         ###   ########.fr       */
+/*   Updated: 2019/11/12 15:12:38 by mmasyush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,12 @@
 # include <iostream>
 # include <string>
 # include <stdexcept>
+
+class Ex_BadParams : public std::exception
+{
+public:
+    const char * what() const throw();
+};
 
 class Ex_BadFile : public std::exception
 {

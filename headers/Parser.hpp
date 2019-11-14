@@ -6,7 +6,7 @@
 /*   By: mmasyush <mmasyush@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/09 16:25:57 by mmasyush          #+#    #+#             */
-/*   Updated: 2019/11/10 19:04:01 by mmasyush         ###   ########.fr       */
+/*   Updated: 2019/11/12 19:19:33 by mmasyush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,9 @@ public:
 
     Parser& operator=(Parser const &);
 
-    void    read_terminal();
-    void    read_file(char *file);
+    void    read_instruct();
+    void    read_instruct(char *file);
+    
 };
 
 #endif

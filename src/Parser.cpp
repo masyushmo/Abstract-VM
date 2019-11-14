@@ -6,21 +6,27 @@
 /*   By: mmasyush <mmasyush@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/10 13:27:04 by mmasyush          #+#    #+#             */
-/*   Updated: 2019/11/10 19:07:40 by mmasyush         ###   ########.fr       */
+/*   Updated: 2019/11/12 19:18:51 by mmasyush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Parser.hpp"
+#include "../headers/Parser.hpp"
 
-Parser::Parser() {}
+Parser::Parser() : _is_ValidLine(false), _is_exit(false) {}
 
-Parser::Parser(Parser const &cpy){*this = cpy; }
+Parser::Parser(Parser const &cpy)
+{
+    *this = cpy;
+}
 
-Parser& Parser::operator=(Parser const &) { return *this; }
+Parser& Parser::operator=(Parser const &)
+{
+    return *this;
+}
 
-Parser::~Parser(){}
+Parser::~Parser() {}
 
-void    Parser::read_file(char *file)
+void    Parser::read_instruct(char *file)
 {
     std::ifstream ifs(file);
     if(!ifs)
@@ -32,7 +38,7 @@ void    Parser::read_file(char *file)
     ifs.close();
 }
 
-void    Parser::read_terminal()
+void    Parser::read_instruct()
 {
     std::string line;
         
