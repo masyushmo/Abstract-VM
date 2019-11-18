@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mmasyush <mmasyush@student.unit.ua>        +#+  +:+       +#+         #
+#    By: mmasyush <mmasyush@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/09 16:44:14 by mmasyush          #+#    #+#              #
-#    Updated: 2019/11/12 17:44:34 by mmasyush         ###   ########.fr        #
+#    Updated: 2019/11/18 17:02:24 by mmasyush         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,9 +16,9 @@ FLAGS = -Wall -Werror -Wextra
 
 NAME = avm 
 
-SRC = Parser.cpp Lexer.cpp main.cpp
+SRC = Parser.cpp Lexer.cpp main.cpp Exept.cpp
 
-HEAD = Parser.hpp Lexer.hpp 
+HEAD = Parser.hpp Lexer.hpp Exept.hpp IOperand.hpp
 
 HEAD_DIR = $(addprefix $(./headers/), $(HEAD)) 
 

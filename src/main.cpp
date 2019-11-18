@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mmasyush <mmasyush@student.unit.ua>        +#+  +:+       +#+        */
+/*   By: mmasyush <mmasyush@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/10 13:23:27 by mmasyush          #+#    #+#             */
-/*   Updated: 2019/11/12 15:12:49 by mmasyush         ###   ########.fr       */
+/*   Updated: 2019/11/18 17:01:31 by mmasyush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Parser.hpp"
+#include "../headers/Parser.hpp"
 
 int main(int argc, char **argv)
 {

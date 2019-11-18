@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   Exept.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mmasyush <mmasyush@student.unit.ua>        +#+  +:+       +#+        */
+/*   By: mmasyush <mmasyush@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/12 15:19:03 by mmasyush          #+#    #+#             */
-/*   Updated: 2019/11/12 17:41:07 by mmasyush         ###   ########.fr       */
+/*   Updated: 2019/11/18 17:02:00 by mmasyush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Exept.hpp"
+#include "../headers/Exept.hpp"
 
 const char * Ex_BadParams::what() const throw()
 {

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Parser.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mmasyush <mmasyush@student.unit.ua>        +#+  +:+       +#+        */
+/*   By: mmasyush <mmasyush@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/09 16:25:57 by mmasyush          #+#    #+#             */
-/*   Updated: 2019/11/12 19:19:33 by mmasyush         ###   ########.fr       */
+/*   Updated: 2019/11/18 17:01:48 by mmasyush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define PARSER_HPP
 
 # include "Exept.hpp"
-# include <iostream> 
+# include "Lexer.hpp"
 # include <stack>
 # include <fstream>
 
@@ -24,8 +24,6 @@ class Parser
 private:
 
     std::stack<std::string> _strStack;
-    bool    _is_ValidLine;
-    bool    _is_exit;
 
 public:
     
