@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Lexer.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mmasyush <mmasyush@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mmasyush <mmasyush@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/10 13:26:51 by mmasyush          #+#    #+#             */
-/*   Updated: 2019/11/18 18:51:02 by mmasyush         ###   ########.fr       */
+/*   Updated: 2019/11/21 17:26:57 by mmasyush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # define EXIT "((//s)*(exit|;;)((//s)*(;.*))?)"
 # define COMMENT "((//s)*(;.*))"
 # define COMMAND "(//s)*(pop|dump|add|sub|mul|div|mod|print)((//s)*(;.*))?)"
-# define COMMAND_NUN "(//s)*(push|assert)(int8|int16|int32|float|double)(-?//d+(\\.//d+)?)((//s)*(;.*))?)"  
+# define COMMAND_NUN "(//s)*(push|assert)(-?//d+(\\.//d+)?)((//s)*(;.*))?)"  
 
 class Lexer
 {

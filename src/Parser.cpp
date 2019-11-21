@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Parser.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mmasyush <mmasyush@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mmasyush <mmasyush@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/10 13:27:04 by mmasyush          #+#    #+#             */
-/*   Updated: 2019/11/18 17:38:37 by mmasyush         ###   ########.fr       */
+/*   Updated: 2019/11/21 17:24:32 by mmasyush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,7 @@ void    Parser::read_instruct(char *file)
         throw Ex_BadFile();
     
     std::string line;
-    while (std::getline(ifs, line))
-    {
-        if (lex.check_skip(line))
-            continue;
-        else if (lex.check_reg(line))
-            std::cout << "goood" << std::endl;
-    }
+    
     ifs.close();
 }
 
