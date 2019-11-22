@@ -16,8 +16,6 @@ push int32(42)
 
  dump
 
- pop
+pp
 
  assert double(42.42)
-
- exit

@@ -6,7 +6,7 @@
 /*   By: mmasyush <mmasyush@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/10 13:27:04 by mmasyush          #+#    #+#             */
-/*   Updated: 2019/11/22 14:09:24 by mmasyush         ###   ########.fr       */
+/*   Updated: 2019/11/22 19:29:41 by mmasyush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ Parser::Parser(Parser const &cpy)
     *this = cpy;
 }
 
-Parser& Parser::operator=(Parser const &)
+Parser& Parser::operator=(Parser const & src)
 {
     return *this;
 }
@@ -30,6 +30,11 @@ void    Parser::set_exit(bool i)
 {
     this->_is_exit = i;
 }
+
+// void    Parser::chose_op()
+// {
+    
+// }
 
 void    Parser::read_instruct(char *file)
 {

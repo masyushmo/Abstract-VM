@@ -3,16 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   FactoryMethod.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mmasyush <mmasyush@student.unit.ua>        +#+  +:+       +#+        */
+/*   By: mmasyush <mmasyush@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/18 19:15:17 by mmasyush          #+#    #+#             */
-/*   Updated: 2019/11/21 18:19:25 by mmasyush         ###   ########.fr       */
+/*   Updated: 2019/11/22 19:28:07 by mmasyush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "FactoryMethod.hpp"
+#include "../headers/FactoryMethod.hpp"
+#include "../headers/Exept.hpp"
+#include "../headers/IOperand.hpp"
 
-Factory::Factory() {}
+Factory::Factory()
+{}
 
 Factory::Factory(Factory const &cpy)
 {
@@ -26,32 +29,95 @@ Factory& Factory::operator=(Factory const &)
 
 Factory::~Factory() {}
 
-IOperand const * createOperand( eOperandType type, std::string const & value ) const
-{
-    
-}
+IOperand const * Factory::createOperand( eOperandType type, std::string const & value ) const
+{ }
 
 IOperand const * Factory::createInt8( std::string const & value ) const
 {
+    long long num = std::stoll(value);
 
+	try
+	{
+		if (num > INT8_MAX)
+			throw Ex_Overflow();
+		else if (num < INT8_MIN)
+			throw Ex_Underflow();
+	}
+	catch(const std::exception& e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+	return (new Operand<int8_t>(static_cast<int8_t>(num))); 
 }
 
 IOperand const * Factory::createInt16( std::string const & value ) const
 {
-    
-}
+   long long num = std::stoll(value);
+
+	try
+	{
+		if (num > INT16_MAX)
+			throw Ex_Overflow();
+		else if (num < INT16_MIN)
+			throw Ex_Underflow();
+	}
+	catch(const std::exception& e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+	return (new Operand<int16_t>(static_cast<int16_t>(num))); 
+}  
 
 IOperand const * Factory::createInt32( std::string const & value ) const 
 {
-    
+    long long num = std::stoll(value);
+
+	try
+	{
+		if (num > INT32_MAX)
+			throw Ex_Overflow();
+		else if (num < INT32_MIN)
+			throw Ex_Underflow();
+	}
+	catch(const std::exception& e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+	return (new Operand<int32_t>(static_cast<int32_t>(num)));
 }
 
 IOperand const * Factory::createFloat( std::string const & value ) const 
 {
-    
+    long double num = std::stold(value);
+
+	try
+	{
+		if (num > FLT_MAX)
+			throw Ex_Overflow();
+		else if (num < FLT_MIN)
+			throw Ex_Underflow();
+	}
+	catch(const std::exception& e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+	return (new Operand<float>(static_cast<float>(num))); 
 }
 
 IOperand const * Factory::createDouble( std::string const & value ) const 
 {
+    long double num = std::stold(value);
 
+	try
+	{
+		if (num > DBL_MAX)
+			throw Ex_Overflow();
+		else if (num < DBL_MIN)
+			throw Ex_Underflow();
+	}
+	catch(const std::exception& e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+	return (new Operand<double>(static_cast<double>(num)));
 }

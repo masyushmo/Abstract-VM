@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   FactoryMethod.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mmasyush <mmasyush@student.unit.ua>        +#+  +:+       +#+        */
+/*   By: mmasyush <mmasyush@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/18 19:16:30 by mmasyush          #+#    #+#             */
-/*   Updated: 2019/11/21 16:42:06 by mmasyush         ###   ########.fr       */
+/*   Updated: 2019/11/22 18:39:53 by mmasyush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,10 @@
 # define FACTORYMETHOD_HPP
 
 #include "IOperand.hpp"
+#include "Operand.hpp"
 #include <vector>
+#include <climits>
+#include <float.h>
 
 class Factory
 {
@@ -37,7 +40,7 @@ public:
     Factory & operator=(Factory const &);  
     ~Factory();
 
-    IOperand const * createOperand( eOperandType type, std::string const & value ) const;
+    IOperand const * createOperand(eOperandType type, std::string const & value ) const;
     
 };
 
