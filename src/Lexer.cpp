@@ -6,7 +6,7 @@
 /*   By: mmasyush <mmasyush@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/10 13:26:54 by mmasyush          #+#    #+#             */
-/*   Updated: 2019/11/18 17:17:33 by mmasyush         ###   ########.fr       */
+/*   Updated: 2019/11/22 14:07:02 by mmasyush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 Lexer::Lexer() : _exit(EXIT), _comment(COMMENT), _command(COMMAND), _command_num(COMMAND_NUN)
 {
     _is_ValidLine = false;
-    _is_exit = false;
 }
 
 Lexer::Lexer(Lexer const &cpy)
@@ -38,19 +37,25 @@ bool Lexer::check_skip(std::string line)
     return false;
 }
 
-bool Lexer::check_reg(std::string line)
+bool Lexer::check_exit(std::string line)
 {
     if (std::regex_match(line, _exit))
+        return true;
+    return false;
+}
+
+bool Lexer::check_reg(std::string line)
+{
+    try
     {
-        _is_exit = true;
-        return true;
+        if (std::regex_match(line, _command) || std::regex_match(line, _command_num))
+            return true;
+        throw Ex_BadComand();
     }
-    else if (std::regex_match(line, _command) || std::regex_match(line, _command_num))
-        return true;
-    else if (_is_exit == false)
-        throw Ex_NoExit();
-    else
-        throw Ex_BadLex();
+    catch(const std::exception & e)
+	{
+		std::cout << e.what() << std::endl;
+	}
     return false;
 }
 

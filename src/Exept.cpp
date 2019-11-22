@@ -6,7 +6,7 @@
 /*   By: mmasyush <mmasyush@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/12 15:19:03 by mmasyush          #+#    #+#             */
-/*   Updated: 2019/11/18 19:20:41 by mmasyush         ###   ########.fr       */
+/*   Updated: 2019/11/22 13:55:41 by mmasyush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,55 +14,50 @@
 
 const char * Ex_BadParams::what() const throw()
 {
-    return "Given bad parameters";
+    return "\033[0;31mGiven bad parameters\033[0;37m";
 }
 
 const char * Ex_BadFile::what() const throw()
 {
-    return "Bad file given";
-}
-
-const char * Ex_BadLex::what() const throw()
-{
-    return "Lexical error";
+    return "\033[0;31mBad file given\033[0;37m";
 }
 
 const char * Ex_BadComand::what() const throw()
 {
-    return "No such commund";
+    return "\033[0;31mAn instruction is unknown\033[0;37m";
 }
 
 const char * Ex_Overflow::what() const throw()
 {
-    return "Overerflow exception";
+    return "\033[0;31mOvererflow exception\033[0;37m";
 }
 
 const char * Ex_Underflow::what() const throw()
 {
-    return "Underflow exception";
+    return "\033[0;31mUnderflow exception\033[0;37m";
 }
 
 const char * Ex_PopEmpty::what() const throw()
 {
-    return "Bad pop command, stack is empty";
+    return "\033[0;31mBad pop command, stack is empty\033[0;37m";
 }
 
 const char * Ex_DivByZero::what() const throw()
 {
-    return "Division by zero error";
+    return "\033[0;31mDivision/modulo by 0 error\033[0;37m";
 }
 
 const char * Ex_NoExit::what() const throw()
 {
-    return "Neded exit command";
+    return "\033[0;31mThe program doesn’t have an exit instruction!!\033[0;37m";
 }
 
 const char * Ex_BadAssert::what() const throw()
 {
-    return "Bad assert command";
+    return "\033[0;31mBad assert command\033[0;37m";
 }
 
 const char * Ex_NotEnough::what() const throw()
 {
-    return "Not enought parameters for operation";
+    return "\033[0;31mNot enought parameters for operation\033[0;37m";
 }

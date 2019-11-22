@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Exept.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mmasyush <mmasyush@student.unit.ua>        +#+  +:+       +#+        */
+/*   By: mmasyush <mmasyush@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/10 15:00:20 by mmasyush          #+#    #+#             */
-/*   Updated: 2019/11/12 15:12:38 by mmasyush         ###   ########.fr       */
+/*   Updated: 2019/11/22 13:55:53 by mmasyush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,6 @@ public:
 };
 
 class Ex_BadFile : public std::exception
-{
-public:
-    const char * what() const throw();
-};
-
-class Ex_BadLex : public std::exception
 {
 public:
     const char * what() const throw();
