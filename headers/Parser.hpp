@@ -6,7 +6,7 @@
 /*   By: mmasyush <mmasyush@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/09 16:25:57 by mmasyush          #+#    #+#             */
-/*   Updated: 2019/11/22 14:46:27 by mmasyush         ###   ########.fr       */
+/*   Updated: 2019/11/23 16:14:18 by mmasyush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "Exept.hpp"
 # include "Lexer.hpp"
+# include "Brain.hpp"
 # include <stack>
 # include <fstream>
 
@@ -34,8 +35,9 @@ public:
     Parser& operator=(Parser const &);
 
     void    set_exit(bool);
-    void    read_instruct();
-    void    read_instruct(char *file);
+    void    read_terminal();
+    void    read_file(char *file);
+    void    chose_op(std::string line);
     
 };
 

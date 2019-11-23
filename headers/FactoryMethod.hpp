@@ -6,7 +6,7 @@
 /*   By: mmasyush <mmasyush@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/18 19:16:30 by mmasyush          #+#    #+#             */
-/*   Updated: 2019/11/22 18:39:53 by mmasyush         ###   ########.fr       */
+/*   Updated: 2019/11/23 15:42:36 by mmasyush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,14 @@ class Factory
 
 private:
 
-    typedef std::vector<IOperand const *(Factory::*)(std::string const & value) const> point_arr;
-    static point_arr _parr;
-    
     IOperand const * createInt8( std::string const & value ) const;
     IOperand const * createInt16( std::string const & value ) const;
     IOperand const * createInt32( std::string const & value ) const;
     IOperand const * createFloat( std::string const & value ) const;
     IOperand const * createDouble( std::string const & value ) const;
+
+    typedef decltype(&Factory::createDouble) _vecType;
+    static std::vector<_vecType> _vecA;
 
 public:
 

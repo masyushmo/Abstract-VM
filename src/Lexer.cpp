@@ -6,7 +6,7 @@
 /*   By: mmasyush <mmasyush@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/10 13:26:54 by mmasyush          #+#    #+#             */
-/*   Updated: 2019/11/22 14:07:02 by mmasyush         ###   ########.fr       */
+/*   Updated: 2019/11/23 16:09:19 by mmasyush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,5 +58,9 @@ bool Lexer::check_reg(std::string line)
 	}
     return false;
 }
+
+std::regex const Lexer::getCommand() const { return _command; }
+
+std::regex const Lexer::getCommandNum() const { return _command_num; }
 
 

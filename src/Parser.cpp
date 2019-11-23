@@ -6,7 +6,7 @@
 /*   By: mmasyush <mmasyush@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/10 13:27:04 by mmasyush          #+#    #+#             */
-/*   Updated: 2019/11/22 19:29:41 by mmasyush         ###   ########.fr       */
+/*   Updated: 2019/11/23 16:35:09 by mmasyush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ Parser::Parser(Parser const &cpy)
     *this = cpy;
 }
 
-Parser& Parser::operator=(Parser const & src)
+Parser& Parser::operator=(Parser const &)
 {
     return *this;
 }
@@ -31,12 +31,41 @@ void    Parser::set_exit(bool i)
     this->_is_exit = i;
 }
 
-// void    Parser::chose_op()
-// {
+void    Parser::chose_op(std::string line)
+{
+    std::smatch match;
+    Lexer lex;
+    Brain br;
     
-// }
+    if (regex_search(line, match, lex.getCommand()))
+    {
+        if (match[1] == "pop")
+            br.pop();
+        else if (match[1] == "dump")
+            br.dump();
+        else if (match[1] == "add")
+            br.add();
+        else if (match[1] == "sub")
+            br.sub();
+        else if (match[1] == "mul")
+            br.mul();
+        else if (match[1] == "div")
+            br.div();
+        else if (match[1] == "mod")
+            br.mod();
+        else if (match[1] == "print")
+            br.print();    
+    }
+    else if (regex_search(line, match, lex.getCommandNum()))
+    {
+        if (match[1] == "push")
+            br.push();
+        else if (match[1] == "dump")
+            br.dump();
+    }
+}
 
-void    Parser::read_instruct(char *file)
+void    Parser::read_file(char *file)
 {
     std::ifstream ifs(file);
     Lexer lex;
@@ -53,7 +82,7 @@ void    Parser::read_instruct(char *file)
         else if (lex.check_exit(line))
             _is_exit = true;
         else if (lex.check_reg(line))
-            std::cout << "goood" << std::endl;
+            chose_op(line);
     }
     ifs.close();
     try
@@ -67,7 +96,7 @@ void    Parser::read_instruct(char *file)
     }
 }
 
-void    Parser::read_instruct()
+void    Parser::read_terminal()
 {
     std::string line;
     Lexer lex;
@@ -79,7 +108,7 @@ void    Parser::read_instruct()
         else if (lex.check_exit(line))
             _is_exit = true;
         else if (lex.check_reg(line))
-            std::cout << "goood" << std::endl;
+            chose_op(line);
     }
     try
     {

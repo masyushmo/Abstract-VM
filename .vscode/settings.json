@@ -65,5 +65,6 @@
         "*.tcc": "cpp",
         "hashtable": "cpp",
         "climits": "cpp"
-    }
+    },
+    "clang.cxxflags": ["-std=c++11"]
 }

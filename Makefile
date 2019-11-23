@@ -6,11 +6,11 @@
 #    By: mmasyush <mmasyush@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/09 16:44:14 by mmasyush          #+#    #+#              #
-#    Updated: 2019/11/18 17:02:24 by mmasyush         ###   ########.fr        #
+#    Updated: 2019/11/23 15:04:33 by mmasyush         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC = clang++
+CC = clang++ -std=c++11
 
 FLAGS = -Wall -Werror -Wextra
 

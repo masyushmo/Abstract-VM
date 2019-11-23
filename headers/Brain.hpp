@@ -6,7 +6,7 @@
 /*   By: mmasyush <mmasyush@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/22 14:43:59 by mmasyush          #+#    #+#             */
-/*   Updated: 2019/11/22 19:34:15 by mmasyush         ###   ########.fr       */
+/*   Updated: 2019/11/23 16:34:45 by mmasyush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ class Brain
 private:
 
     std::stack<const IOperand *> _stacki;
-	IOperand * _first;
-	IOperand * _second;
+	const IOperand * _first;
+	const IOperand * _second;
 
 public:
 
@@ -33,16 +33,16 @@ public:
     ~Brain();
 
     Brain & operator=(Brain const &);
-    void	_push(const IOperand* value);
-    void	_assert(const IOperand* value);
-	void	_pop();
-	void	_dump();
-	void	_add();
-	void	_sub();
-	void	_mul();
-	void	_div();
-	void	_mod();
-	void	_print() const;
+	void	pop();
+	void	push(const IOperand* value);
+    void	assert(const IOperand* value);
+	void	dump();
+	void	add();
+	void	sub();
+	void	mul();
+	void	div();
+	void	mod();
+	void	print() const;
 };
 
 
