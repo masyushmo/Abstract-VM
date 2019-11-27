@@ -6,7 +6,7 @@
 #    By: mmasyush <mmasyush@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/09 16:44:14 by mmasyush          #+#    #+#              #
-#    Updated: 2019/11/23 15:04:33 by mmasyush         ###   ########.fr        #
+#    Updated: 2019/11/27 18:27:21 by mmasyush         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,9 +16,9 @@ FLAGS = -Wall -Werror -Wextra
 
 NAME = avm 
 
-SRC = Parser.cpp Lexer.cpp main.cpp Exept.cpp
+SRC = Parser.cpp Lexer.cpp main.cpp Exept.cpp Operand.cpp FactoryMethod.cpp Brain.cpp
 
-HEAD = Parser.hpp Lexer.hpp Exept.hpp IOperand.hpp
+HEAD = Parser.hpp Lexer.hpp Exept.hpp IOperand.hpp Operand.hpp FactoryMethod.hpp Brain.hpp
 
 HEAD_DIR = $(addprefix $(./headers/), $(HEAD)) 
 

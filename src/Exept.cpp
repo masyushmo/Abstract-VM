@@ -6,7 +6,7 @@
 /*   By: mmasyush <mmasyush@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/12 15:19:03 by mmasyush          #+#    #+#             */
-/*   Updated: 2019/11/22 13:55:41 by mmasyush         ###   ########.fr       */
+/*   Updated: 2019/11/27 17:35:00 by mmasyush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,12 @@ const char * Ex_Underflow::what() const throw()
 
 const char * Ex_PopEmpty::what() const throw()
 {
-    return "\033[0;31mBad pop command, stack is empty\033[0;37m";
+    return "\033[0;31mCan't pop command, stack is empty\033[0;37m";
+}
+
+const char * Ex_Empty::what() const throw()
+{
+    return "\033[0;31mStack is empty\033[0;37m";
 }
 
 const char * Ex_DivByZero::what() const throw()

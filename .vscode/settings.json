@@ -64,7 +64,9 @@
         "vector": "cpp",
         "*.tcc": "cpp",
         "hashtable": "cpp",
-        "climits": "cpp"
+        "climits": "cpp",
+        "__tree": "cpp",
+        "map": "cpp"
     },
     "clang.cxxflags": ["-std=c++11"]
 }

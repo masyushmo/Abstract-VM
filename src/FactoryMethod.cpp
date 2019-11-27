@@ -6,7 +6,7 @@
 /*   By: mmasyush <mmasyush@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/18 19:15:17 by mmasyush          #+#    #+#             */
-/*   Updated: 2019/11/23 15:17:38 by mmasyush         ###   ########.fr       */
+/*   Updated: 2019/11/27 19:36:05 by mmasyush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,15 @@ Factory::~Factory() {}
 
 IOperand const * Factory::createOperand( eOperandType type, std::string const & value ) const
 {
+	IOperand const * b = (this->*(_vecA.at(type)))(value);
+	std::cout << "FSFSDFSDFSD" << b->toString() << "fff'" <<  std::endl;
 	return ((this->*(_vecA.at(type)))(value));
 }
 
 IOperand const * Factory::createInt8( std::string const & value ) const
 {
     long long num = std::stoll(value);
-
+	
 	try
 	{
 		if (num > INT8_MAX)

@@ -6,7 +6,7 @@
 /*   By: mmasyush <mmasyush@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/18 17:46:16 by mmasyush          #+#    #+#             */
-/*   Updated: 2019/11/23 15:42:20 by mmasyush         ###   ########.fr       */
+/*   Updated: 2019/11/27 19:30:46 by mmasyush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,10 @@ Operand<T>::Operand() {}
 template < typename T >
 Operand<T>::Operand(T value)
 {
+    std::cout << value << std::endl;
     _value = value;
-    _type = setType();
-    _str = toString();
+    setType();
+    toString();
 }
 
 template < typename T >
@@ -44,6 +45,9 @@ int Operand<T>::getPrecision() const { return _precision; }
 
 template < typename T >
 eOperandType Operand<T>::getType() const { return _type; }
+
+template < typename T >
+T Operand<T>::getValue() const { return _value; }
 
 template < typename T >
 std::string const & Operand<T>::toString() const { return _str; }
@@ -180,3 +184,9 @@ IOperand const * Operand<T>::operator%(IOperand const & rhs) const
         return (fac.createOperand(top, \
             std::to_string(static_cast<long long>(_value) % std::stoll(rhs.toString()))));
 }
+
+template class Operand<double>;
+template class Operand<float>;
+template class Operand<int8_t>;
+template class Operand<int16_t>;
+template class Operand<int32_t>;

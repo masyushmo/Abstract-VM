@@ -6,7 +6,7 @@
 /*   By: mmasyush <mmasyush@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/22 14:43:59 by mmasyush          #+#    #+#             */
-/*   Updated: 2019/11/23 16:34:45 by mmasyush         ###   ########.fr       */
+/*   Updated: 2019/11/27 18:27:36 by mmasyush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <stack>
 # include "IOperand.hpp"
+# include "FactoryMethod.hpp"
 # include "Exept.hpp"
 
 class Brain
@@ -34,8 +35,8 @@ public:
 
     Brain & operator=(Brain const &);
 	void	pop();
-	void	push(const IOperand* value);
-    void	assert(const IOperand* value);
+	void	push(const IOperand * op);
+    void	assert(const IOperand * op);
 	void	dump();
 	void	add();
 	void	sub();

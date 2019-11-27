@@ -6,7 +6,7 @@
 /*   By: mmasyush <mmasyush@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/18 17:44:46 by mmasyush          #+#    #+#             */
-/*   Updated: 2019/11/22 18:55:19 by mmasyush         ###   ########.fr       */
+/*   Updated: 2019/11/27 17:43:11 by mmasyush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ public:
 
     int getPrecision( void ) const;
     eOperandType getType( void ) const;
+    T getValue( void ) const;
 
     IOperand const * operator+( IOperand const & rhs) const;
     IOperand const * operator-( IOperand const & rhs) const;

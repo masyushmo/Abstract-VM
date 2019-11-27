@@ -6,7 +6,7 @@
 /*   By: mmasyush <mmasyush@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/10 13:27:04 by mmasyush          #+#    #+#             */
-/*   Updated: 2019/11/23 16:35:09 by mmasyush         ###   ########.fr       */
+/*   Updated: 2019/11/27 19:28:11 by mmasyush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,42 +26,52 @@ Parser& Parser::operator=(Parser const &)
 
 Parser::~Parser() {}
 
-void    Parser::set_exit(bool i)
+eOperandType    Parser::getType(std::string mtch) const
 {
-    this->_is_exit = i;
+    if (mtch == "double")
+        return (Double);
+    else if (mtch == "float")
+        return (Float);
+    else if (mtch == "int8")
+        return (Int8);
+    else if (mtch == "int16")
+        return (Int16);
+    else
+        return (Int32);
 }
 
 void    Parser::chose_op(std::string line)
 {
     std::smatch match;
-    Lexer lex;
-    Brain br;
+    eOperandType eOT;
+    Lexer _lex;
     
-    if (regex_search(line, match, lex.getCommand()))
+    if (regex_match(line, match, _lex.getCommand()))
     {
         if (match[1] == "pop")
-            br.pop();
+            _br.pop();
         else if (match[1] == "dump")
-            br.dump();
+            _br.dump();
         else if (match[1] == "add")
-            br.add();
+            _br.add();
         else if (match[1] == "sub")
-            br.sub();
+            _br.sub();
         else if (match[1] == "mul")
-            br.mul();
+            _br.mul();
         else if (match[1] == "div")
-            br.div();
+            _br.div();
         else if (match[1] == "mod")
-            br.mod();
+            _br.mod();
         else if (match[1] == "print")
-            br.print();    
+            _br.print();    
     }
-    else if (regex_search(line, match, lex.getCommandNum()))
+    else if (regex_match(line, match, _lex.getCommandNum()))
     {
+        eOT = getType(match[2]);
         if (match[1] == "push")
-            br.push();
-        else if (match[1] == "dump")
-            br.dump();
+            _br.push(_fac.createOperand(eOT, match[4]));
+        else if (match[1] == "assert")
+            _br.assert(_fac.createOperand(eOT, match[4]));
     }
 }
 
