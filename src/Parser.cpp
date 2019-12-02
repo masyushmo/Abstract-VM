@@ -6,7 +6,7 @@
 /*   By: mmasyush <mmasyush@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/10 13:27:04 by mmasyush          #+#    #+#             */
-/*   Updated: 2019/12/02 16:12:15 by mmasyush         ###   ########.fr       */
+/*   Updated: 2019/12/02 19:00:36 by mmasyush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,12 +87,15 @@ void    Parser::read_file(char *file)
 
     while (std::getline(ifs, line))
     {
-        if (_lex.check_skip(line))
-            continue;
-        else if (_lex.check_exit(line))
-            _is_exit = true;
-        else if (_lex.check_reg(line))
-            chose_op(line);
+        if (_is_exit == false)
+        {
+            if (_lex.check_skip(line))
+                continue;
+            else if (_lex.check_exit(line))
+                _is_exit = true;
+            else if (_lex.check_reg(line))
+                chose_op(line);
+        }
     }
     ifs.close();
     try
@@ -112,12 +115,15 @@ void    Parser::read_terminal()
     
     while (std::getline(std::cin, line) && line != ";;")
     {
-        if (_lex.check_skip(line))
-            continue;
-        else if (_lex.check_exit(line))
-            _is_exit = true;
-        else if (_lex.check_reg(line))
-            chose_op(line);
+        if (_is_exit == false)
+        {
+            if (_lex.check_skip(line))
+                continue;
+            else if (_lex.check_exit(line))
+                _is_exit = true;
+            else if (_lex.check_reg(line))
+                chose_op(line);
+        }
     }
     try
     {

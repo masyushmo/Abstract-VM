@@ -6,7 +6,7 @@
 /*   By: mmasyush <mmasyush@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/10 13:26:51 by mmasyush          #+#    #+#             */
-/*   Updated: 2019/12/02 17:44:45 by mmasyush         ###   ########.fr       */
+/*   Updated: 2019/12/02 18:59:35 by mmasyush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <string>
 # include "Exept.hpp"
 
-# define EXIT "(?:[\\s]*(exit|;;)([\\s]+(;.*))?)"
+# define EXIT "(?:[\\s]*(exit)([\\s]+(;.*))?)"
 # define COMMENT "(?:[\\s]*(;.*))"
 # define COMMAND "(?:[\\s]*(pop|dump|add|sub|mul|div|mod|print)([\\s]+(;.*))?)"
 # define COMMAND_NUN "(?:[\\s]*(push|assert)[\\s]+(int8|int16|int32|float|double)([(]([-]?([\\d]+|[\\d]+.[\\d]+))[)])([\\s]+(;.*))?))"
