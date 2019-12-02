@@ -1,0 +1,3 @@
+push int8(130)
+dump
+exit
