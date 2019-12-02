@@ -6,10 +6,11 @@
 /*   By: mmasyush <mmasyush@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/10 13:23:27 by mmasyush          #+#    #+#             */
-/*   Updated: 2019/11/23 13:24:15 by mmasyush         ###   ########.fr       */
+/*   Updated: 2019/12/01 18:44:14 by mmasyush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../headers/Parser.hpp"
 #include "../headers/Parser.hpp"
 
 int main(int argc, char **argv)

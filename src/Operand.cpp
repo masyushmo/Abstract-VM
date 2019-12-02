@@ -6,22 +6,20 @@
 /*   By: mmasyush <mmasyush@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/18 17:46:16 by mmasyush          #+#    #+#             */
-/*   Updated: 2019/11/27 19:30:46 by mmasyush         ###   ########.fr       */
+/*   Updated: 2019/12/02 15:27:22 by mmasyush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/Operand.hpp"
 
 template < typename T >
-Operand<T>::Operand() {}
-
-template < typename T >
 Operand<T>::Operand(T value)
 {
-    std::cout << value << std::endl;
+    // std::cout << "value1: " << value << std::endl;
     _value = value;
+    // std::cout << "value2: " << _value << std::endl;
     setType();
-    toString();
+    setStr();
 }
 
 template < typename T >
@@ -140,16 +138,6 @@ IOperand const * Operand<T>::operator*(IOperand const & rhs) const
 template <typename T >
 IOperand const * Operand<T>::operator/(IOperand const & rhs) const
 {
-    try
-    {
-        if (std::stold(rhs.toString()) == 0)
-		    throw Ex_DivByZero();
-    }
-    catch(const std::exception & e)
-    {
-        std::cout << e.what() << std::endl;
-    }
-
     eOperandType top = std::max(_type, rhs.getType());
     Factory fac;
 
@@ -164,16 +152,6 @@ IOperand const * Operand<T>::operator/(IOperand const & rhs) const
 template <typename T >
 IOperand const * Operand<T>::operator%(IOperand const & rhs) const
 {
-    try
-    {
-        if (std::stold(rhs.toString()) == 0)
-		    throw Ex_DivByZero();
-    }
-    catch(const std::exception & e)
-    {
-        std::cout << e.what() << std::endl;
-    }
-
     eOperandType top = std::max(_type, rhs.getType());
     Factory fac;
 

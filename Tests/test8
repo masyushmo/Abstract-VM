@@ -1,0 +1,6 @@
+; An assert instruction is not true
+
+push int32(11)
+assert int32(10)
+
+exit

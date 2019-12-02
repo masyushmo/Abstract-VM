@@ -6,7 +6,7 @@
 /*   By: mmasyush <mmasyush@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/22 14:43:43 by mmasyush          #+#    #+#             */
-/*   Updated: 2019/11/27 19:12:05 by mmasyush         ###   ########.fr       */
+/*   Updated: 2019/12/02 15:33:31 by mmasyush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,6 @@ Brain & Brain::operator=(Brain const &)
 
 void	Brain::push(const IOperand * op)
 {
-	std::cout << "hguuhu" << std::endl;
-	std::cout << op->toString() << std::endl;	
 	_stacki.push(op);
 }
 
@@ -119,7 +117,7 @@ void	Brain::sub()
 		_stacki.pop();
 		_second = _stacki.top();
 		_stacki.pop();
-		result = *_first - *_second;
+		result = *_second - *_first;
 		_stacki.push(result);
 		delete _first;
 		delete _second;
@@ -156,18 +154,20 @@ void	Brain::mul()
 
 void	Brain::div()
 {
+	const IOperand * result;
+	
 	try
 	{
 		if (_stacki.size() < 2)
 			throw Ex_NotEnough();
-		
-		const IOperand * result;
 
 		_first = _stacki.top();
+		if (std::stold(_first->toString()) == 0)
+			throw Ex_DivByZero();
 		_stacki.pop();
 		_second = _stacki.top();
 		_stacki.pop();
-		result = *_first / *_second;
+		result = *_second / *_first;
 		_stacki.push(result);
 		delete _first;
 		delete _second;
@@ -180,18 +180,19 @@ void	Brain::div()
 
 void	Brain::mod()
 {
+	const IOperand * result;
+
 	try
 	{
 		if (_stacki.size() < 2)
 			throw Ex_NotEnough();
-		
-		const IOperand * result;
-
 		_first = _stacki.top();
+		if (std::stold(_first->toString()) == 0)
+			throw Ex_ModByZero();
 		_stacki.pop();
 		_second = _stacki.top();
 		_stacki.pop();
-		result = *_first % *_second;
+		result = *_second % *_first;
 		_stacki.push(result);
 		delete _first;
 		delete _second;
@@ -204,21 +205,23 @@ void	Brain::mod()
 
 void	Brain::print() const
 {
+	int8_t ch;
+	
     try
 	{
 		if (_stacki.empty())
 			throw Ex_Empty();
 		if (_stacki.top()->getType() == Int8)
 		{
-			char ch = std::stoi(_stacki.top()->toString());
+			ch = static_cast<int8_t>(std::stoi(_stacki.top()->toString()));
 			std::cout << ch << std::endl;
 		}
 		else
-			throw Ex_BadAssert();
+			throw Ex_Print();
 	}
 	catch(const std::exception& e)
 	{
-		std::cout << e.what() << '\n';
+		std::cout << e.what() << std::endl;
 	}
 	
 }

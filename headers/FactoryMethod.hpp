@@ -6,7 +6,7 @@
 /*   By: mmasyush <mmasyush@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/18 19:16:30 by mmasyush          #+#    #+#             */
-/*   Updated: 2019/11/23 15:42:36 by mmasyush         ###   ########.fr       */
+/*   Updated: 2019/12/01 18:21:26 by mmasyush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@
 #include "IOperand.hpp"
 #include "Operand.hpp"
 #include <vector>
-#include <climits>
+#include <limits>
+#include <cstdint>
 #include <float.h>
 
 class Factory

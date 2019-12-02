@@ -6,7 +6,7 @@
 /*   By: mmasyush <mmasyush@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/10 15:00:20 by mmasyush          #+#    #+#             */
-/*   Updated: 2019/11/27 17:34:35 by mmasyush         ###   ########.fr       */
+/*   Updated: 2019/12/02 15:48:24 by mmasyush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,12 @@ public:
 };
 
 class Ex_BadFile : public std::exception
+{
+public:
+    const char * what() const throw();
+};
+
+class Ex_LexError : public std::exception
 {
 public:
     const char * what() const throw();
@@ -65,6 +71,12 @@ public:
     const char * what() const throw();
 };
 
+class Ex_ModByZero : public std::exception
+{
+public:
+    const char * what() const throw();
+};
+
 class Ex_NoExit : public std::exception
 {
 public:
@@ -78,6 +90,12 @@ public:
 };
 
 class Ex_NotEnough : public std::exception
+{
+public:
+    const char * what() const throw();
+};
+
+class Ex_Print : public std::exception
 {
 public:
     const char * what() const throw();

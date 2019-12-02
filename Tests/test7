@@ -1,0 +1,7 @@
+; no exit
+
+push int32(50)
+push double(11.11)
+add
+
+dump

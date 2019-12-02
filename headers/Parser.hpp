@@ -6,7 +6,7 @@
 /*   By: mmasyush <mmasyush@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/09 16:25:57 by mmasyush          #+#    #+#             */
-/*   Updated: 2019/11/27 19:19:02 by mmasyush         ###   ########.fr       */
+/*   Updated: 2019/12/02 16:14:25 by mmasyush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include "Exept.hpp"
 # include "Lexer.hpp"
 # include "Brain.hpp"
+# include "Lexer.hpp"
 # include "IOperand.hpp"
 # include <stack>
 # include <fstream>
@@ -29,6 +30,7 @@ private:
     bool _is_exit;
     Factory _fac;
     Brain _br;
+    Lexer _lex;
 
 public:
     

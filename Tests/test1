@@ -1,0 +1,6 @@
+; lex error
+
+push int32(10.)
+assert int32(10.)
+
+exit

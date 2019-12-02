@@ -1,0 +1,10 @@
+; not enough
+
+push int32(111)
+add
+
+push int32(100)
+add
+
+dump
+exit

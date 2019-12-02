@@ -1,0 +1,5 @@
+; owerflow
+
+push int8(9999999999999)
+
+exit

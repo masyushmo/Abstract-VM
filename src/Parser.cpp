@@ -6,7 +6,7 @@
 /*   By: mmasyush <mmasyush@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/10 13:27:04 by mmasyush          #+#    #+#             */
-/*   Updated: 2019/11/27 19:28:11 by mmasyush         ###   ########.fr       */
+/*   Updated: 2019/12/02 16:12:15 by mmasyush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ void    Parser::chose_op(std::string line)
 {
     std::smatch match;
     eOperandType eOT;
-    Lexer _lex;
     
     if (regex_match(line, match, _lex.getCommand()))
     {
@@ -69,7 +68,9 @@ void    Parser::chose_op(std::string line)
     {
         eOT = getType(match[2]);
         if (match[1] == "push")
+        {
             _br.push(_fac.createOperand(eOT, match[4]));
+        }
         else if (match[1] == "assert")
             _br.assert(_fac.createOperand(eOT, match[4]));
     }
@@ -78,7 +79,6 @@ void    Parser::chose_op(std::string line)
 void    Parser::read_file(char *file)
 {
     std::ifstream ifs(file);
-    Lexer lex;
     
     if(!ifs)
         throw Ex_BadFile();
@@ -87,11 +87,11 @@ void    Parser::read_file(char *file)
 
     while (std::getline(ifs, line))
     {
-        if (lex.check_skip(line))
+        if (_lex.check_skip(line))
             continue;
-        else if (lex.check_exit(line))
+        else if (_lex.check_exit(line))
             _is_exit = true;
-        else if (lex.check_reg(line))
+        else if (_lex.check_reg(line))
             chose_op(line);
     }
     ifs.close();
@@ -109,15 +109,14 @@ void    Parser::read_file(char *file)
 void    Parser::read_terminal()
 {
     std::string line;
-    Lexer lex;
     
     while (std::getline(std::cin, line) && line != ";;")
     {
-        if (lex.check_skip(line))
+        if (_lex.check_skip(line))
             continue;
-        else if (lex.check_exit(line))
+        else if (_lex.check_exit(line))
             _is_exit = true;
-        else if (lex.check_reg(line))
+        else if (_lex.check_reg(line))
             chose_op(line);
     }
     try

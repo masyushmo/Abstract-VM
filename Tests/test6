@@ -1,0 +1,10 @@
+; div by zero
+
+push int8(10)
+push int8(0)
+
+div
+
+mod ; fdgdfgdfhdfhdfhd
+
+exit

@@ -1,0 +1,4 @@
+; An instruction is unknown
+
+push long(2032412)
+exit
