@@ -6,7 +6,7 @@
 /*   By: mmasyush <mmasyush@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/10 13:27:04 by mmasyush          #+#    #+#             */
-/*   Updated: 2019/12/02 19:00:36 by mmasyush         ###   ########.fr       */
+/*   Updated: 2019/12/04 18:51:46 by mmasyush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,14 @@ void    Parser::chose_op(std::string line)
         eOT = getType(match[2]);
         if (match[1] == "push")
         {
-            _br.push(_fac.createOperand(eOT, match[4]));
+           try
+           {
+                _br.push(_fac.createOperand(eOT, match[4]));
+           }
+           catch (std::exception & e)
+           {
+               std::cout << e.what() << std::endl;
+           }
         }
         else if (match[1] == "assert")
             _br.assert(_fac.createOperand(eOT, match[4]));

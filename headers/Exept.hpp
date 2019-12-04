@@ -6,7 +6,7 @@
 /*   By: mmasyush <mmasyush@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/10 15:00:20 by mmasyush          #+#    #+#             */
-/*   Updated: 2019/12/02 17:05:53 by mmasyush         ###   ########.fr       */
+/*   Updated: 2019/12/04 16:02:30 by mmasyush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ public:
     const char * what() const throw();
 };
 
-class Ex_Print : public std::exception
+class Ex_Print : public Ex_BadAssert
 {
 public:
     const char * what() const throw();

@@ -6,7 +6,7 @@
 /*   By: mmasyush <mmasyush@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/18 17:46:16 by mmasyush          #+#    #+#             */
-/*   Updated: 2019/12/02 17:40:42 by mmasyush         ###   ########.fr       */
+/*   Updated: 2019/12/04 18:27:02 by mmasyush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,7 @@
 template < typename T >
 Operand<T>::Operand(T value)
 {
-    // std::cout << "value1: " << value << std::endl;
     _value = value;
-    // std::cout << "value2: " << _value << std::endl;
     setType();
     setStr();
 }
@@ -71,12 +69,12 @@ void Operand<T>::setType()
 	else if (typeid(float) == typeid(T))
     {
         _type = Float;
-        _precision = 7;
+        _precision = 4;
     }
 	else
     {
         _type = Double;
-        _precision = 14;
+        _precision = 8;
     }
 }
 
@@ -85,9 +83,9 @@ void Operand<T>::setStr()
 {
     if (_precision == 7 || _precision == 14)
     {
-        std::stringstream strs;
-        strs << std::setprecision(_precision) << _value;
-        _str = strs.str();
+        std::stringstream str;
+        str << std::fixed << std::setprecision(_precision) << _value;
+        _str = str.str();
     }
     else
         _str = std::to_string(_value);

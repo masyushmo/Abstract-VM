@@ -6,7 +6,7 @@
 /*   By: mmasyush <mmasyush@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/22 14:43:43 by mmasyush          #+#    #+#             */
-/*   Updated: 2019/12/02 17:44:18 by mmasyush         ###   ########.fr       */
+/*   Updated: 2019/12/04 16:34:32 by mmasyush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void	Brain::dump()
 		std::stack<const IOperand *> copy = _stacki;
 		while (!copy.empty())
 		{
-			std::cout << copy.top()->toString() << std::endl;
+			std::cout << copy.top()->toString() <<  std::endl;
 			copy.pop();
 		}
 	}
@@ -204,20 +204,15 @@ void	Brain::mod()
 }
 
 void	Brain::print() const
-{
-	int8_t ch;
-	
+{	
     try
 	{
 		if (_stacki.empty())
 			throw Ex_Empty();
-		if (_stacki.top()->getType() == Int8)
-		{
-			ch = static_cast<int8_t>(std::stoi(_stacki.top()->toString()));
-			std::cout << ch << std::endl;
-		}
-		else
+		if (_stacki.top()->getType() != Int8)
 			throw Ex_Print();
+		else
+			std::cout << static_cast<int8_t>(std::stoi(_stacki.top()->toString())) << std::endl;
 	}
 	catch(const std::exception& e)
 	{
