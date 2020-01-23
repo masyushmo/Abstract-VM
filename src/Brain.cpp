@@ -6,7 +6,7 @@
 /*   By: mmasyush <mmasyush@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/22 14:43:43 by mmasyush          #+#    #+#             */
-/*   Updated: 2019/12/04 16:34:32 by mmasyush         ###   ########.fr       */
+/*   Updated: 2020/01/23 13:54:02 by mmasyush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -212,11 +212,18 @@ void	Brain::print() const
 		if (_stacki.top()->getType() != Int8)
 			throw Ex_Print();
 		else
-			std::cout << static_cast<int8_t>(std::stoi(_stacki.top()->toString())) << std::endl;
+			std::cout << "\033[0;36m" << static_cast<int8_t>(std::stoi(_stacki.top()->toString())) << "\033[0m" << std::endl;
 	}
 	catch(const std::exception& e)
 	{
 		std::cout << e.what() << std::endl;
 	}
 	
+}
+
+void	Brain::help() const
+{	
+	std::cout << "\033[1;34mHi! Here list of all alowed commands for this program:\033[0;32m\n" <<
+		"1) push \033[4;31mVALUE\033[0;32m\n2) pop\n3) dump\n4) assert \033[4;31mVALUE\033[0;32m\n5) add\n6) sub\n7) mul\n8) div\n9) mod\n10) print\n11) exit\n"
+		<< "\n\033[4;31mVALUE: \033[0;32m\n1) int8(N)\n2) int16(N)\n3) int32(N)\n4) float(Z)\n5) double(Z)\033[0m" << std::endl;
 }

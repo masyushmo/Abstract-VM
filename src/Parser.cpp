@@ -6,7 +6,7 @@
 /*   By: mmasyush <mmasyush@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/10 13:27:04 by mmasyush          #+#    #+#             */
-/*   Updated: 2019/12/04 18:51:46 by mmasyush         ###   ########.fr       */
+/*   Updated: 2020/01/23 13:29:10 by mmasyush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,9 @@ void    Parser::chose_op(std::string line)
         else if (match[1] == "mod")
             _br.mod();
         else if (match[1] == "print")
-            _br.print();    
+            _br.print();
+        else if (match[1] == "help")
+            _br.help();    
     }
     else if (regex_match(line, match, _lex.getCommandNum()))
     {

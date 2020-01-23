@@ -6,7 +6,7 @@
 /*   By: mmasyush <mmasyush@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/22 14:43:59 by mmasyush          #+#    #+#             */
-/*   Updated: 2019/12/02 17:44:20 by mmasyush         ###   ########.fr       */
+/*   Updated: 2020/01/23 13:19:26 by mmasyush         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ public:
 	void	div();
 	void	mod();
 	void	print() const;
+	void	help() const;
 };
 
 
